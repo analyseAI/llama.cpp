@@ -30,6 +30,7 @@ struct gpt_params {
 
     std::string model  = "models/lamma-7B/ggml-model.bin"; // model path
     std::string prompt = "";
+    std::string input_prefix = ""; // string to prefix user inputs with
 
 
     std::vector<std::string> antiprompt; // string upon seeing which more user input is prompted
@@ -47,6 +48,7 @@ struct gpt_params {
     bool perplexity        = false; // compute perplexity over the prompt
     bool use_mlock         = false; // use mlock to keep model in memory
     bool mem_test          = false; // compute maximum memory usage
+    bool verbose_prompt    = false; // print prompt tokens before generation
 };
 
 bool gpt_params_parse(int argc, char ** argv, gpt_params & params);
